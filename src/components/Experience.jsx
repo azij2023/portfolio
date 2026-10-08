@@ -50,54 +50,56 @@ function ExperienceCard({ exp }) {
   }, [open]);
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-      <div className="bg-blue-900 px-6 py-2 text-xs font-bold tracking-wide text-white">
+    <article className="card-lift overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-6 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white">
         {exp.tag}
+        <span className="rounded-full bg-white/10 px-3 py-1 font-medium normal-case tracking-normal text-slate-200">
+          {exp.mode}
+        </span>
       </div>
-      <div className="bg-blue-50 px-6 py-2">
+      <div className="border-b border-slate-100 bg-slate-50/80 px-6 py-3">
         <p className="text-sm font-semibold text-slate-800">{exp.company}</p>
       </div>
-      <div className="flex flex-wrap justify-between gap-2 bg-blue-50/60 px-6 py-2 text-sm font-medium text-slate-700">
-        <span>{exp.role}</span>
-        <span className="underline">{exp.mode}</span>
-        <span className="underline">{exp.dates}</span>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-6 py-3 text-sm">
+        <span className="font-semibold text-slate-900">{exp.role}</span>
+        <span className="rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">{exp.dates}</span>
       </div>
 
-      <div className="p-6">
-        <p className="mb-4 inline-block bg-slate-200 px-2 py-1 text-sm font-semibold text-slate-800">
+      <div className="p-6 sm:p-7">
+        <p className="mb-4 inline-block rounded-lg bg-blue-50 px-3 py-2 text-sm font-semibold leading-relaxed text-slate-800">
           {exp.projectTitle}
         </p>
 
         {exp.screenshots.length > 0 && (
-          <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {exp.screenshots.map((src, index) => (
               <img
                 key={src}
                 src={src}
                 alt={`${exp.company} dashboard view ${index + 1}`}
                 loading="lazy"
-                className="h-64 w-full rounded-xl border border-slate-200 object-cover object-top"
+                className="h-64 w-full rounded-2xl border border-slate-200 bg-slate-100 object-cover object-top shadow-sm"
               />
             ))}
           </div>
         )}
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap items-center gap-4">
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="rounded-full bg-blue-700 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan-500"
+            className="text-sm font-semibold text-blue-700 transition-colors hover:text-blue-900"
           >
-            View Details
+            View Details <span aria-hidden="true">→</span>
           </button>
           {exp.liveLink && (
             <a
               href={exp.liveLink}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full border border-blue-700 px-5 py-2 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-700 hover:text-white"
+              className="text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
             >
-              View Live Dashboard →
+              View Live Dashboard <span aria-hidden="true">↗</span>
             </a>
           )}
         </div>
