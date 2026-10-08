@@ -50,76 +50,58 @@ function ExperienceCard({ exp }) {
   }, [open]);
 
   return (
-    <>
-    <article className="card-lift overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-      {exp.screenshots.length > 0 ? (
-        <img
-          src={exp.screenshots[0]}
-          alt={`${exp.company} project dashboard`}
-          loading="lazy"
-          className="h-56 w-full border-b border-slate-100 object-cover object-top"
-        />
-      ) : (
-        <div className="flex h-56 items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800">
-          <div aria-hidden="true" className="flex items-center gap-3 text-blue-100">
-            <span className="grid h-16 w-16 place-items-center rounded-2xl border border-white/20 bg-white/10 text-3xl">
-              ◉
-            </span>
-            <span className="text-sm font-semibold uppercase tracking-[0.2em]">
-              Learn · Test · Adapt
-            </span>
+    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="bg-blue-900 px-6 py-2 text-xs font-bold tracking-wide text-white">
+        {exp.tag}
+      </div>
+      <div className="bg-blue-50 px-6 py-2">
+        <p className="text-sm font-semibold text-slate-800">{exp.company}</p>
+      </div>
+      <div className="flex flex-wrap justify-between gap-2 bg-blue-50/60 px-6 py-2 text-sm font-medium text-slate-700">
+        <span>{exp.role}</span>
+        <span className="underline">{exp.mode}</span>
+        <span className="underline">{exp.dates}</span>
+      </div>
+
+      <div className="p-6">
+        <p className="mb-4 inline-block bg-slate-200 px-2 py-1 text-sm font-semibold text-slate-800">
+          {exp.projectTitle}
+        </p>
+
+        {exp.screenshots.length > 0 && (
+          <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {exp.screenshots.map((src, index) => (
+              <img
+                key={src}
+                src={src}
+                alt={`${exp.company} dashboard view ${index + 1}`}
+                loading="lazy"
+                className="h-64 w-full rounded-xl border border-slate-200 object-cover object-top"
+              />
+            ))}
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="p-6 sm:p-7">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-            {exp.tag}
-          </p>
-          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
-            {exp.dates}
-          </span>
-        </div>
-        <h3 className="mt-2 text-xl font-bold tracking-tight text-slate-900">
-          {exp.role}
-        </h3>
-        <p className="mt-1 text-sm font-medium text-slate-600">{exp.company}</p>
-        <p className="mt-4 leading-relaxed text-slate-600">{exp.projectTitle}</p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          <span className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-            {exp.mode}
-          </span>
-          {exp.screenshots.length > 1 && (
-            <span className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-              Dashboard
-            </span>
-          )}
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap gap-3">
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="text-sm font-semibold text-blue-700 transition-colors hover:text-blue-900"
+            className="rounded-full bg-blue-700 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan-500"
           >
-            View experience details <span aria-hidden="true">→</span>
+            View Details
           </button>
           {exp.liveLink && (
             <a
               href={exp.liveLink}
               target="_blank"
               rel="noreferrer"
-              className="text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
+              className="rounded-full border border-blue-700 px-5 py-2 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-700 hover:text-white"
             >
-              Open live dashboard <span aria-hidden="true">↗</span>
+              View Live Dashboard →
             </a>
           )}
         </div>
       </div>
-
-    </article>
 
       {open && (
         <div
@@ -135,62 +117,41 @@ function ExperienceCard({ exp }) {
             className="modal-panel max-h-full w-full max-w-2xl overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:p-8"
           >
             <div className="mb-6 flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-700">
-                  {exp.tag} · {exp.dates}
-                </p>
-                <h3 className="mt-2 text-2xl font-bold text-slate-900">{exp.role}</h3>
-                <p className="mt-1 text-sm text-slate-500">{exp.company}</p>
-              </div>
+              <h3 className="text-lg font-semibold text-slate-800">{exp.role}</h3>
               <button
                 type="button"
                 aria-label="Close experience details"
                 onClick={() => setOpen(false)}
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"
+                className="text-slate-400 hover:text-slate-700"
               >
                 ×
               </button>
             </div>
-            {exp.screenshots.length > 1 && (
-              <div className="mb-6 grid grid-cols-2 gap-3">
-                {exp.screenshots.map((src, index) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt={`${exp.company} dashboard view ${index + 1}`}
-                    loading="lazy"
-                    className="h-36 w-full rounded-xl border border-slate-200 object-cover object-top"
-                  />
-                ))}
-              </div>
-            )}
-            <ul className="space-y-4">
-              {exp.bullets.map((b) => (
-                <li key={b} className="flex gap-3 text-sm leading-relaxed text-slate-600">
-                  <span className="mt-0.5 text-blue-700" aria-hidden="true">↗</span>
-                  {b}
+            <ul className="space-y-3">
+              {exp.bullets.map((bullet) => (
+                <li key={bullet} className="relative pl-5 text-sm text-slate-600">
+                  <span className="absolute left-0 top-1 text-blue-700" aria-hidden="true">▸</span>
+                  {bullet}
                 </li>
               ))}
             </ul>
           </div>
         </div>
       )}
-    </>
+    </article>
   );
 }
 
 export default function Experience() {
   return (
     <section id="experience" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-4xl space-y-8">
         <SectionTitle description="Hands-on work applying analytics and AI to operational challenges.">
           Experience
         </SectionTitle>
-        <div className="grid gap-6 lg:grid-cols-2">
-          {experiences.map((exp) => (
-            <ExperienceCard key={exp.company + exp.dates} exp={exp} />
-          ))}
-        </div>
+        {experiences.map((exp) => (
+          <ExperienceCard key={exp.company + exp.dates} exp={exp} />
+        ))}
       </div>
     </section>
   );
