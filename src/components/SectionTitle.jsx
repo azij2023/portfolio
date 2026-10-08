@@ -1,8 +1,15 @@
-export default function SectionTitle({ children }) {
+export default function SectionTitle({ children, description }) {
   return (
-    <h2 className="relative text-center text-3xl font-semibold mb-12 text-cyan-600">
-      {children}
-      <span className="absolute left-1/2 -bottom-3 -translate-x-1/2 w-20 h-1 rounded bg-blue-700" />
-    </h2>
+    <div className="mb-12 text-center">
+      <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        {children}
+      </h2>
+      {description && (
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-500">
+          {description}
+        </p>
+      )}
+      <span className="mx-auto mt-5 block h-1 w-12 rounded-full bg-blue-600" />
+    </div>
   );
 }
