@@ -1,13 +1,13 @@
 export default function Home() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center text-center px-4">
-      <div>
+    <section id="home" className="min-h-screen flex items-center justify-center text-center px-4 pt-24 pb-10">
+      <div className="max-w-6xl">
         <img
-          src="/profile.jpeg"
+          src={`${import.meta.env.BASE_URL}profile.jpeg`}
           alt="AZIJUR RAHAMAN"
           className="w-64 h-64 rounded-full object-cover border-4 border-blue-700 shadow-lg mx-auto mb-6"
         />
-        <h1 className="font-mono text-cyan-500 text-2xl md:text-2x1 font-semibold">
+        <h1 className="font-mono text-cyan-500 text-2xl md:text-3xl font-semibold">
           MS in Data Science and Management | IIT Ropar & IIM AMritsar | Fresher
         </h1>
         <p className="text-slate-500 mt-2">Seeking data-driven managerial roles</p>
@@ -15,7 +15,7 @@ export default function Home() {
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a
-            href="/resume.pdf"
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
             download
             className="rounded-full bg-blue-700 text-white px-6 py-2 font-medium hover:bg-cyan-500 transition-colors"
           >
