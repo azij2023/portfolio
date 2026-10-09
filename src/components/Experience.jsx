@@ -6,10 +6,10 @@ const experiences = [
   {
     tag: "SUMMER INTERNSHIP",
     company: "Transmission Corporation of Andhra Pradesh Ltd (APTRANSCO) — State PSU",
-    role: "Data Science & Optimization Intern",
+    role: "Analytics & Optimization Intern",
     mode: "Onsite (Paid)",
     dates: "May 2026 - June 2026 (2 months)",
-    projectTitle: "Agentic Security-Constrained Economic Dispatch (SCED) Power Purchase Decision Support System",
+    projectTitle: "Security-Constrained Economic Dispatch Power Purchase Decision Support",
     categories: [
       "Data science",
       "Decision science",
@@ -21,9 +21,9 @@ const experiences = [
       "Operation",
     ],
     bullets: [
-      "Stakeholder Discovery & System Architecture: Partnered with grid operations leadership to diagnose complex procurement bottlenecks from unstructured requirements; designed autonomous decision-support roadmap replacing legacy spreadsheet workflows",
-      "Agentic Modelling & Impact: Built an optimisation engine (Python, MILP) that can modify forecasts of how much power to buy from which generators at minimum cost, with a MySQL-backed data layer; developed an agentic optimisation framework in Python running 15-minute scheduled cycles with human-in-the-loop deficit alerts; cutting power purchase costs by up to 20%",
-      "Full-Stack Interface & Real-Time Tracking: Engineered an 8-tab React dashboard integrated via REST APIs, converting multi-file spreadsheet workflows into single-click optimal dispatch schedules with real-time deficit alerts",
+      "Collaborated with operations leadership to diagnose power-procurement bottlenecks through stakeholder discussions; translated ambiguous scheduling challenges into an automated decision-support roadmap to replace manual spreadsheets",
+      "Engineered an optimization and cost-forecasting model using Python and SQL to analyze dynamic spot-market pricing, grid load, and transmission constraints",
+      "Built executive dashboards in React to track procurement KPIs and daily variances, contributing to up to a 20% reduction in overall power purchase costs",
     ],
     screenshots: [
       `${import.meta.env.BASE_URL}sced-dashboard-1.png`,
@@ -39,12 +39,30 @@ const experiences = [
     dates: "Jan 2026 - Feb 2026 (2 months)",
     projectTitle: "Designing an Autonomous Learning Agent with Checkpoint Verification and Feynman Pedagogy",
     categories: ["Data science", "Applied Science", "ML", "Product"],
-    bullets: [
-      "Architected a stateful autonomous learning agent in Python using LangGraph, LangChain, and ChromaDB; integrated Groq API with dynamic web search and document chunking for high-speed LLM inference across learning checkpoints",
-      "Built automated tests with a 70% passing bar that trigger simple-language explanations when scores drop; achieved >80% question relevance, >90% scoring accuracy",
+    details: [
+      {
+        heading: "Problem Discovery & System Architecture",
+        body: "Designed Learning Agent to solve the challenge of self-guided learning with weak context and limited adaptive feedback by turning any topic and optional notes into a structured lesson, quiz, and remediation flow; built the system with React, FastAPI, and a LangGraph StateGraph to coordinate context gathering, validation, explanation, scoring, and retry logic in a modular, state-driven architecture.",
+      },
+      {
+        heading: "Modelling & Impact",
+        body: "Modelled the learning journey as an adaptive assessment loop that generates relevant context, explains concepts in beginner-friendly format, creates multiple-choice checks, and gives answer-by-answer feedback, while using a 70% threshold to trigger either progression or a simpler retry explanation; this improved retention and learning efficiency by helping users quickly identify knowledge gaps and revisit concepts through targeted, performance-based remediation.",
+      },
+      {
+        heading: "Full-Stack Interface & Real-Time Tracking",
+        body: "Developed a responsive full-stack interface with React + Vite and FastAPI that enables lesson generation, quiz attempts, progress tracking, and note export while keeping session state across requests for real-time monitoring of learner performance, checkpoint progress, and remediation status; the result is a polished, adaptive study platform with strong usability and continuous visibility into the learner’s understanding.",
+      },
     ],
-    screenshots: [],
-    liveLink: null,
+    bullets: [
+      "Developed an LLM-based pedagogical agent using LangGraph and Python with structured checkpoint-verification workflows and Feynman-style explanations",
+      "Achieved 90% question relevance and 95% scoring accuracy in evaluation",
+    ],
+    screenshots: [
+      `${import.meta.env.BASE_URL}learning-agent-home.png`,
+      `${import.meta.env.BASE_URL}learning-agent-lesson.png`,
+    ],
+    liveLink: "https://learning-agent-xi.vercel.app/",
+    liveLinkText: "View Live Learning Agent Platform",
   },
 ];
 
@@ -74,18 +92,21 @@ function ExperienceCard({ exp }) {
           {exp.mode}
         </span>
       </div>
-      <div className="border-b border-slate-100 bg-slate-50/80 px-6 py-3">
-        <p className="text-sm font-semibold text-slate-800">{exp.company}</p>
-      </div>
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-6 py-3 text-sm">
-        <span className="font-semibold text-slate-900">{exp.role}</span>
-        <span className="rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">{exp.dates}</span>
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-slate-100 bg-slate-50/80 px-6 pb-1 pt-3 text-sm">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-10 gap-y-1">
+          <span className="font-semibold text-slate-800">{exp.company}</span>
+          <span className="text-slate-300" aria-hidden="true">·</span>
+          <span className="font-semibold text-slate-900">{exp.role}</span>
+        </div>
+        <span className="shrink-0 rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">{exp.dates}</span>
       </div>
 
-      <div className="p-6 sm:p-7">
-        <p className="mb-4 inline-block rounded-lg bg-blue-50 px-3 py-2 text-sm font-semibold leading-relaxed text-slate-800">
-          {exp.projectTitle}
-        </p>
+      <div className="px-6 pb-6 pt-0 sm:px-7 sm:pb-7">
+        {exp.projectTitle && (
+          <p className="-ml-1 mb-4 inline-block rounded-lg bg-blue-50 py-2 text-sm font-semibold leading-relaxed text-slate-800">
+            {exp.projectTitle}
+          </p>
+        )}
 
         {exp.screenshots.length > 0 && (
           <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -116,7 +137,7 @@ function ExperienceCard({ exp }) {
               rel="noreferrer"
               className="text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
             >
-              View Live Dashboard <span aria-hidden="true">↗</span>
+              {exp.liveLinkText || "View Live Dashboard"} <span aria-hidden="true">↗</span>
             </a>
           )}
         </div>
@@ -147,14 +168,25 @@ function ExperienceCard({ exp }) {
                   ×
                 </button>
               </div>
-              <ul className="space-y-3">
-                {exp.bullets.map((bullet) => (
-                  <li key={bullet} className="relative pl-5 text-sm leading-relaxed text-slate-600">
-                    <span className="absolute left-0 top-1 text-blue-700" aria-hidden="true">▸</span>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
+              {exp.details ? (
+                <div className="space-y-5">
+                  {exp.details.map(({ heading, body }) => (
+                    <section key={heading}>
+                      <h4 className="mb-1 text-sm font-semibold text-slate-800">{heading}</h4>
+                      <p className="text-sm leading-relaxed text-slate-600">{body}</p>
+                    </section>
+                  ))}
+                </div>
+              ) : (
+                <ul className="space-y-3">
+                  {exp.bullets.map((bullet) => (
+                    <li key={bullet} className="relative pl-5 text-sm leading-relaxed text-slate-600">
+                      <span className="absolute left-0 top-1 text-blue-700" aria-hidden="true">▸</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>,
           document.body,

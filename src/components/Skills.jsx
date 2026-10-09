@@ -1,18 +1,22 @@
 import SectionTitle from "./SectionTitle";
 
 const skills = [
-  { title: "Technical Tools", body: "SQL, Python, Power BI, Tableau, Excel, MySQL, Git, R, MLOps" },
-  { title: "Machine Learning & AI", body: "Advanced statistics, ML algorithms, Deep Learning, NLP, Computer Vision" },
-  { title: "Quantitative & Analytical Skills", body: "Statistical modeling, Data analysis, Predictive modeling, A/B testing" },
-  { title: "Mathematical & Statistical Skills", body: "Linear algebra, Probability theory, Statistical inference, Hypothesis testing" },
-  { title: "Operations Research & Optimization", body: "Linear programming, Integer programming, Network optimization, Simulation modeling" },
-  { title: "Econometrics & Time Series Analysis", body: "Regression analysis, Time series forecasting, Panel data analysis, Econometric modeling" },
-  { title: "Data Science & Cloud Platforms", body: "AWS, GCP, ETL, Data pipelines" },
-  { title: "Optimization / Systems", body: "Supply chain optimization, Resource allocation, Decision support systems" },
-  { title: "Web Development", body: "React, Vite, Tailwind CSS, HTML5, CSS3, JavaScript, RESTful APIs" },
-  { title: "Soft Skills", body: "Problem Solving, Collaboration, Communication, Leadership, Adaptability" },
-  { title: "Business Competencies", body: "Structured Problem Solving, Stakeholder Management, Metric Validation & QA, Executive Dashboards" },
-  { title: "Additional Skills", body: "Data visualization, Business intelligence, Project management, Agile methodologies" },
+  {
+    title: "Analytics & techniques",
+    body: "Time-series forecasting, Decision trees, Predictive modeling, A/B testing, Optimization",
+  },
+  {
+    title: "Technical tools",
+    body: "Python, scikit-learn, Power BI, Tableau, Excel, MySQL, Git, R, MATLAB, LaTeX",
+  },
+  {
+    title: "Business competencies",
+    body: "Structured problem solving, Stakeholder management, Metric validation & QA, Executive dashboards",
+  },
+  {
+    title: "Languages",
+    body: "English, Hindi, Bengali",
+  },
 ];
 
 export default function Skills() {

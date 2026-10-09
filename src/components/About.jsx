@@ -35,7 +35,7 @@ export default function About() {
               the intersection of applied machine learning, operations research,
               and business strategy.
             </p>
-            <p className="mt-5 leading-relaxed text-slate-500">
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
               I enjoy taking an ambiguous challenge, understanding the people
               and data behind it, and building an analytical solution that
               supports better decisions.
