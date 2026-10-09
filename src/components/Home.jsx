@@ -14,13 +14,13 @@ const achievements = [
   {
     title: "National Winner · IIM Bangalore",
     detail:
-      "Operation Case Competition — Sustainable Supply Chain Design for Scope 3 Emission",
+      "Operation Case Competition — Sustainable Supply Chain Design for Scope 3 Emissions",
     date: "Aug '26",
   },
   {
-    title: "National 1st Runner Up · IIM Calcutta",
+    title: "1st Runner Up · IIM Calcutta",
     detail:
-      "Data Analytics Case Competition — Resilient & Tariff Hike Risk-free Portfolio",
+      "National Data Analytics Case Competition — Resilient Portfolio Risk Design",
     date: "Dec '25",
   },
   {
@@ -30,8 +30,9 @@ const achievements = [
     date: "June '26",
   },
   {
-    title: "Top 10%ile · Summer Analytics 2026, IIT Guwahati",
-    detail: "6-week Machine Learning Program & Hackathon, CAC",
+    title: "Top 10%ile · Summer Analytics, IIT Guwahati",
+    detail:
+      "Certificate of Excellence in a 6-week Machine Learning program and hackathon by the Consulting & Analytics Club",
     date: "Jul '26",
   },
   {
@@ -43,7 +44,7 @@ const achievements = [
   {
     title: "ISRO Internship Selection · VSSC",
     detail:
-      "Selected for Summer '26 internship; opted for APTRANSCO due to prior schedule commitment",
+      "Selected for a Summer '26 internship; did not join due to commitment to APTRANSCO",
     date: "May '26",
   },
 ];
@@ -61,7 +62,7 @@ export default function Home() {
         <div className="text-center lg:text-left">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 shadow-sm sm:text-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-100" />
-            Open to data-driven opportunities
+            Open to data-driven and managerial opportunities
           </p>
           <p className="mb-2 text-lg font-medium text-slate-500">Hello, I&apos;m</p>
           <h1 className="text-5xl font-bold tracking-tight text-slate-950 sm:text-6xl xl:text-7xl">
@@ -82,8 +83,8 @@ export default function Home() {
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-slate-500 lg:justify-start">
             <a
-              href={`${import.meta.env.BASE_URL}resume.pdf`}
-              download
+              href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf`}
+              download="Azijur Rahaman_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 hover:shadow-sm"
             >
               <span aria-hidden="true">↓</span> Download résumé
@@ -137,8 +138,8 @@ export default function Home() {
                 key={achievement.title}
                 className="card-lift rounded-2xl bg-slate-50 p-4"
               >
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <p className="text-sm font-bold text-slate-900">
+                <div className="flex flex-nowrap items-baseline justify-between gap-x-3">
+                  <p className="min-w-0 text-sm font-bold text-slate-900">
                     {achievement.title}
                   </p>
                   <span className="shrink-0 text-xs font-medium text-blue-700">

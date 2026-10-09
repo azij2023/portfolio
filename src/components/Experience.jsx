@@ -34,7 +34,7 @@ const experiences = [
   {
     tag: "WINTER INTERNSHIP",
     company: "Infosys Springboard, India",
-    role: "AI Agent Intern",
+    role: "Artifitial Intelligence Intern",
     mode: "Remote",
     dates: "Jan 2026 - Feb 2026 (2 months)",
     projectTitle: "Designing an Autonomous Learning Agent with Checkpoint Verification and Feynman Pedagogy",
@@ -62,7 +62,7 @@ const experiences = [
       `${import.meta.env.BASE_URL}learning-agent-lesson.png`,
     ],
     liveLink: "https://learning-agent-xi.vercel.app/",
-    liveLinkText: "View Live Learning Agent Platform",
+    liveLinkText: "Explore Live Learning Agent Platform",
   },
 ];
 
@@ -128,7 +128,7 @@ function ExperienceCard({ exp }) {
             onClick={() => setOpen(true)}
             className="text-sm font-semibold text-blue-700 transition-colors hover:text-blue-900"
           >
-            View Details <span aria-hidden="true">→</span>
+            Explore Details <span aria-hidden="true">→</span>
           </button>
           {exp.liveLink && (
             <a
@@ -137,7 +137,7 @@ function ExperienceCard({ exp }) {
               rel="noreferrer"
               className="text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
             >
-              {exp.liveLinkText || "View Live Dashboard"} <span aria-hidden="true">↗</span>
+              {exp.liveLinkText || "Explore Live Dashboard"} <span aria-hidden="true">↗</span>
             </a>
           )}
         </div>
