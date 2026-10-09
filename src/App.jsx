@@ -16,12 +16,9 @@ export default function App() {
   useEffect(() => {
     const sections = document.querySelectorAll(".section-reveal");
     const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
+      (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
         });
       },
       { threshold: 0.08 },
@@ -53,11 +50,19 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <a
+        href="#contact"
+        className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-[#dfeeff] px-5 py-3 text-sm font-semibold tracking-[0.02em] text-slate-900 shadow-[0_18px_35px_rgba(59,130,246,0.14)] transition-all hover:-translate-y-0.5 hover:bg-[#d1e8ff] focus-visible:outline-offset-4"
+      >
+        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 text-base text-white">✦</span>
+        Let&apos;s talk
+      </a>
+
       <button
         type="button"
         aria-label="Back to top"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-slate-900 text-xl text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-blue-700 focus-visible:outline-offset-4 ${
+        className={`fixed bottom-24 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-slate-900 text-xl text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-blue-700 focus-visible:outline-offset-4 ${
           showTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
         }`}
       >

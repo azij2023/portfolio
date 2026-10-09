@@ -66,8 +66,10 @@ textarea:focus-visible {
 
 .section-reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 650ms ease, transform 650ms ease;
+  transform: translateY(32px) scale(.99);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(.2, .65, .3, 1);
 }
 
 .section-reveal.is-visible {
@@ -117,4 +119,5 @@ textarea:focus-visible {
     opacity: 1;
     transform: none;
   }
+
 }

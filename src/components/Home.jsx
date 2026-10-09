@@ -1,16 +1,64 @@
-const focusAreas = ["Data science", "Decision science", "Optimization"];
+const focusAreas = [
+  "Data science",
+  "Decision science",
+  "Optimization",
+  "Applied Science",
+  "ML",
+  "Forecasting",
+  "Product",
+  "Strategy",
+  "Operation",
+];
+
+const achievements = [
+  {
+    title: "National Winner · IIM Bangalore",
+    detail:
+      "Operation Case Competition — Sustainable Supply Chain Design for Scope 3 Emission",
+    date: "Aug '26",
+  },
+  {
+    title: "National 1st Runner Up · IIM Calcutta",
+    detail:
+      "Data Analytics Case Competition — Resilient & Tariff Hike Risk-free Portfolio",
+    date: "Dec '25",
+  },
+  {
+    title: "All India Rank 70 · AINCAT, Naukri Campus",
+    detail:
+      "Secured a top rank in the nationwide career aptitude assessment",
+    date: "June '26",
+  },
+  {
+    title: "Top 10%ile · Summer Analytics 2026, IIT Guwahati",
+    detail: "6-week Machine Learning Program & Hackathon, CAC",
+    date: "Jul '26",
+  },
+  {
+    title: "National Finalist · IIT Madras",
+    detail:
+      "HR Analytics Case Competition — Inefficiencies in Tech Hiring",
+    date: "Dec '25",
+  },
+  {
+    title: "ISRO Internship Selection · VSSC",
+    detail:
+      "Selected for Summer '26 internship; opted for APTRANSCO due to prior schedule commitment",
+    date: "May '26",
+  },
+];
 
 export default function Home() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] scroll-mt-20 items-center overflow-hidden px-5 pb-16 pt-28 sm:px-8 lg:min-h-screen"
+      className="relative flex min-h-[92vh] scroll-mt-20 items-center overflow-hidden px-5 pb-16 pt-16 sm:px-8 lg:min-h-screen"
     >
       <div className="pointer-events-none absolute -right-32 top-24 h-96 w-96 rounded-full bg-blue-100/70 blur-3xl" />
       <div className="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-cyan-100/60 blur-3xl" />
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="order-2 text-center lg:order-1 lg:text-left">
+        <div className="text-center lg:text-left">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 shadow-sm sm:text-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-100" />
             Open to data-driven opportunities
@@ -21,6 +69,48 @@ export default function Home() {
             <br />
             <span className="text-blue-700">Rahaman.</span>
           </h1>
+          <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-blue-100 bg-white/80 px-5 py-4 text-left shadow-sm lg:mx-0">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+              Currently pursuing
+            </p>
+            <p className="mt-1 text-sm font-bold text-slate-800">
+              MS · Data Science &amp; Management
+            </p>
+            <p className="mt-1 text-sm text-slate-500">
+              IIT Ropar <span className="text-slate-300">×</span> IIM Amritsar
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-slate-500 lg:justify-start">
+            <a
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 hover:shadow-sm"
+            >
+              <span aria-hidden="true">↓</span> Download résumé
+            </a>
+            <a
+              href="https://www.linkedin.com/in/azijur-rahaman/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 hover:shadow-sm"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="https://github.com/azij2023"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 hover:shadow-sm"
+            >
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="mailto:azij2023@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 hover:shadow-sm"
+            >
+              Email
+            </a>
+          </div>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 lg:mx-0">
             I turn data, mathematical models, and thoughtful product design into
             practical decisions and measurable impact.
@@ -29,78 +119,38 @@ export default function Home() {
             {focusAreas.map((area) => (
               <span
                 key={area}
-                className="rounded-full border border-slate-200 bg-white/80 px-3.5 py-1.5 text-sm font-medium text-slate-600"
+                className="rounded-full border border-slate-200 bg-white/80 px-3.5 py-1.5 text-sm font-medium text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-white hover:text-blue-700 hover:shadow-sm"
               >
                 {area}
               </span>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 transition-all hover:-translate-y-0.5 hover:bg-blue-800"
-            >
-              Explore my work <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              href={`${import.meta.env.BASE_URL}resume.pdf`}
-              download
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
-            >
-              <span aria-hidden="true">↓</span> Download résumé
-            </a>
-          </div>
-          <div className="mt-8 flex items-center justify-center gap-5 text-sm font-medium text-slate-500 lg:justify-start">
-            <a
-              href="https://www.linkedin.com/in/azijur-rahaman/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-blue-700"
-            >
-              LinkedIn <span aria-hidden="true">↗</span>
-            </a>
-            <span className="h-1 w-1 rounded-full bg-slate-300" />
-            <a
-              href="https://github.com/azij2023"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-blue-700"
-            >
-              GitHub <span aria-hidden="true">↗</span>
-            </a>
-            <span className="h-1 w-1 rounded-full bg-slate-300" />
-            <a
-              href="mailto:azij2023@gmail.com"
-              className="transition-colors hover:text-blue-700"
-            >
-              Email
-            </a>
-          </div>
         </div>
 
-        <div className="relative order-1 mx-auto w-full max-w-sm lg:order-2">
-          <div className="absolute -inset-4 rotate-3 rounded-[2.5rem] bg-gradient-to-br from-blue-200 to-cyan-100" />
-          <div className="relative overflow-hidden rounded-[2.25rem] border border-white bg-white p-3 shadow-2xl shadow-slate-900/15">
-            <img
-              src={`${import.meta.env.BASE_URL}profile.jpeg`}
-              alt="Portrait of Azijur Rahaman"
-              className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-center"
-              fetchPriority="high"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-5 rounded-2xl border border-slate-100 bg-white px-5 py-4 shadow-xl sm:-left-10">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-              Currently pursuing
-            </p>
-            <p className="mt-1 text-sm font-bold text-slate-800">MS · Data Science &amp; Management</p>
-            <p className="mt-1 text-xs text-slate-500">IIT Ropar × IIM Amritsar</p>
-          </div>
-          <span
-            aria-hidden="true"
-            className="absolute -right-3 top-8 grid h-12 w-12 place-items-center rounded-2xl bg-slate-900 text-xl text-white shadow-lg sm:-right-6"
-          >
-            ✳
-          </span>
+        <div className="w-full rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-900/5 sm:p-8">
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
+            Achievements
+          </h2>
+          <ul className="mt-6 space-y-4">
+            {achievements.map((achievement) => (
+              <li
+                key={achievement.title}
+                className="card-lift rounded-2xl bg-slate-50 p-4"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                  <p className="text-sm font-bold text-slate-900">
+                    {achievement.title}
+                  </p>
+                  <span className="shrink-0 text-xs font-medium text-blue-700">
+                    {achievement.date}
+                  </span>
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                  {achievement.detail}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

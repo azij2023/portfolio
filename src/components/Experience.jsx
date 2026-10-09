@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import SectionTitle from "./SectionTitle";
 
 const experiences = [
@@ -9,6 +10,16 @@ const experiences = [
     mode: "Onsite (Paid)",
     dates: "May 2026 - June 2026 (2 months)",
     projectTitle: "Agentic Security-Constrained Economic Dispatch (SCED) Power Purchase Decision Support System",
+    categories: [
+      "Data science",
+      "Decision science",
+      "Optimization",
+      "Applied Science",
+      "Forecasting",
+      "Product",
+      "Strategy",
+      "Operation",
+    ],
     bullets: [
       "Stakeholder Discovery & System Architecture: Partnered with grid operations leadership to diagnose complex procurement bottlenecks from unstructured requirements; designed autonomous decision-support roadmap replacing legacy spreadsheet workflows",
       "Agentic Modelling & Impact: Built an optimisation engine (Python, MILP) that can modify forecasts of how much power to buy from which generators at minimum cost, with a MySQL-backed data layer; developed an agentic optimisation framework in Python running 15-minute scheduled cycles with human-in-the-loop deficit alerts; cutting power purchase costs by up to 20%",
@@ -27,6 +38,7 @@ const experiences = [
     mode: "Remote",
     dates: "Jan 2026 - Feb 2026 (2 months)",
     projectTitle: "Designing an Autonomous Learning Agent with Checkpoint Verification and Feynman Pedagogy",
+    categories: ["Data science", "Applied Science", "ML", "Product"],
     bullets: [
       "Architected a stateful autonomous learning agent in Python using LangGraph, LangChain, and ChromaDB; integrated Groq API with dynamic web search and document chunking for high-speed LLM inference across learning checkpoints",
       "Built automated tests with a 70% passing bar that trigger simple-language explanations when scores drop; achieved >80% question relevance, >90% scoring accuracy",
@@ -42,11 +54,16 @@ function ExperienceCard({ exp }) {
   useEffect(() => {
     if (!open) return undefined;
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const closeOnEscape = (event) => {
       if (event.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
   }, [open]);
 
   return (
@@ -105,53 +122,81 @@ function ExperienceCard({ exp }) {
         </div>
       </div>
 
-      {open && (
-        <div
-          className="modal-backdrop fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/60 px-4 py-8 backdrop-blur-sm"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setOpen(false);
-          }}
-        >
+      {open &&
+        createPortal(
           <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${exp.role} details`}
-            className="modal-panel max-h-full w-full max-w-2xl overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:p-8"
+            className="modal-backdrop fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-slate-950/50 px-4 py-4 backdrop-blur-sm sm:py-8"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setOpen(false);
+            }}
           >
-            <div className="mb-6 flex items-start justify-between gap-4">
-              <h3 className="text-lg font-semibold text-slate-800">{exp.role}</h3>
-              <button
-                type="button"
-                aria-label="Close experience details"
-                onClick={() => setOpen(false)}
-                className="text-slate-400 hover:text-slate-700"
-              >
-                ×
-              </button>
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${exp.role} details`}
+              className="modal-panel my-auto max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:max-h-[calc(100dvh-4rem)] sm:p-8"
+            >
+              <div className="mb-6 flex items-start justify-between gap-4">
+                <h3 className="text-lg font-semibold text-slate-800">{exp.role}</h3>
+                <button
+                  type="button"
+                  aria-label="Close experience details"
+                  onClick={() => setOpen(false)}
+                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 text-xl text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900"
+                >
+                  ×
+                </button>
+              </div>
+              <ul className="space-y-3">
+                {exp.bullets.map((bullet) => (
+                  <li key={bullet} className="relative pl-5 text-sm leading-relaxed text-slate-600">
+                    <span className="absolute left-0 top-1 text-blue-700" aria-hidden="true">▸</span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-3">
-              {exp.bullets.map((bullet) => (
-                <li key={bullet} className="relative pl-5 text-sm text-slate-600">
-                  <span className="absolute left-0 top-1 text-blue-700" aria-hidden="true">▸</span>
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </article>
   );
 }
 
 export default function Experience() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const categories = [...new Set(experiences.flatMap((exp) => exp.categories))]
+    .sort((a, b) => a.localeCompare(b));
+  const filteredExperiences =
+    activeCategory === "All"
+      ? experiences
+      : experiences.filter((exp) => exp.categories.includes(activeCategory));
+
   return (
     <section id="experience" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-4xl space-y-8">
-        <SectionTitle description="Hands-on work applying analytics and AI to operational challenges.">
-          Experience
-        </SectionTitle>
-        {experiences.map((exp) => (
+      <div className="mx-auto max-w-6xl space-y-8">
+        <SectionTitle>Experience</SectionTitle>
+        <div
+          aria-label="Filter experience by category"
+          className="flex gap-2 overflow-x-auto pb-2"
+        >
+          {["All", ...categories].map((category) => (
+            <button
+              key={category}
+              type="button"
+              aria-pressed={activeCategory === category}
+              onClick={() => setActiveCategory(category)}
+              className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                activeCategory === category
+                  ? "border-blue-700 bg-blue-700 text-white"
+                  : "border-slate-200 bg-white text-slate-600 hover:border-blue-200 hover:text-blue-700"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        {filteredExperiences.map((exp) => (
           <ExperienceCard key={exp.company + exp.dates} exp={exp} />
         ))}
       </div>
