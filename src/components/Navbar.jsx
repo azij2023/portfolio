@@ -88,7 +88,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={closeMenu}
-                className="block rounded-full bg-slate-900 px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+                className="block rounded-full bg-blue-100 px-5 py-2.5 text-center text-sm font-semibold text-blue-900 transition-colors hover:bg-blue-200"
               >
                 Let&apos;s talk
               </a>
