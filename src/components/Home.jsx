@@ -85,7 +85,7 @@ export default function Home() {
             <a
               href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf`}
               download="Azijur Rahaman_Resume.pdf"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800 hover:shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-blue-800 bg-blue-800 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-900 hover:bg-blue-900 hover:shadow-sm"
             >
               <span aria-hidden="true">↓</span> Download résumé
             </a>
