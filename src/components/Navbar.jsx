@@ -51,7 +51,7 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="primary-navigation"
           onClick={() => setMenuOpen((open) => !open)}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-slate-200 text-slate-700 md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-slate-200 text-slate-700 xl:hidden"
         >
           <span className="text-xl leading-none" aria-hidden="true">
             {menuOpen ? "×" : "☰"}
@@ -60,11 +60,11 @@ export default function Navbar() {
 
         <div
           id="primary-navigation"
-          className={`absolute inset-x-0 top-full border-b border-slate-200 bg-white px-5 py-4 shadow-lg md:static md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
-            menuOpen ? "block" : "hidden md:block"
+          className={`absolute inset-x-0 top-full border-b border-slate-200 bg-white px-5 py-4 shadow-lg xl:static xl:border-0 xl:bg-transparent xl:p-0 xl:shadow-none ${
+            menuOpen ? "block" : "hidden xl:block"
           }`}
         >
-          <ul className="flex flex-col gap-1 md:flex-row md:items-center md:gap-1">
+          <ul className="flex flex-col gap-1 xl:flex-row xl:items-center xl:gap-1">
             {links.map(([label, href]) => {
               const section = href.slice(1);
               return (
@@ -84,7 +84,20 @@ export default function Navbar() {
                 </li>
               );
             })}
-            <li className="pt-2 md:pt-0 md:pl-2">
+            <li className="pt-2 xl:pt-0 xl:pl-2">
+              <a
+                href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf`}
+                download="Azijur Rahaman_Resume.pdf"
+                onClick={closeMenu}
+                className="flex items-center justify-center gap-2 rounded-full bg-blue-800 px-5 py-2.5 text-sm font-bold text-white! transition-colors hover:bg-blue-900"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 4v16m-6-6 6 6 6-6" />
+                </svg>
+                Download résumé
+              </a>
+            </li>
+            <li className="pt-2 xl:pt-0 xl:pl-2">
               <a
                 href="#contact"
                 onClick={closeMenu}
