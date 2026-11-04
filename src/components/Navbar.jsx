@@ -86,15 +86,6 @@ export default function Navbar() {
             })}
             <li className="pt-2 xl:pt-0 xl:pl-2">
               <a
-                href="#contact"
-                onClick={closeMenu}
-                className="block rounded-full bg-blue-100 px-5 py-2.5 text-center text-sm font-semibold text-blue-900 transition-colors hover:bg-blue-200"
-              >
-                Let&apos;s talk
-              </a>
-            </li>
-            <li className="pt-2 xl:pt-0 xl:pl-2">
-              <a
                 href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf`}
                 download="Azijur Rahaman_Resume.pdf"
                 onClick={closeMenu}
@@ -104,6 +95,15 @@ export default function Navbar() {
                   <path d="M12 4v16m-6-6 6 6 6-6" />
                 </svg>
                 Download résumé
+              </a>
+            </li>
+            <li className="pt-2 xl:pt-0 xl:pl-2">
+              <a
+                href="#contact"
+                onClick={closeMenu}
+                className="block rounded-full bg-blue-100 px-5 py-2.5 text-center text-sm font-semibold text-blue-900 transition-colors hover:bg-blue-200"
+              >
+                Let&apos;s talk
               </a>
             </li>
           </ul>
