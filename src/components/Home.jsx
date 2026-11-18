@@ -53,12 +53,12 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] scroll-mt-20 items-start overflow-hidden px-5 pb-16 pt-20 sm:px-8 lg:min-h-screen"
+      className="relative flex min-h-[92vh] scroll-mt-20 items-start overflow-hidden px-5 pb-16 pt-24 sm:px-8 lg:min-h-screen"
     >
       <div className="pointer-events-none absolute -right-32 top-24 h-96 w-96 rounded-full bg-blue-100/70 blur-3xl" />
       <div className="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-cyan-100/60 blur-3xl" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="relative mx-auto grid w-full max-w-6xl items-start gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="text-center lg:text-left">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 shadow-sm sm:text-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-100" />
