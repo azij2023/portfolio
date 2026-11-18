@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] scroll-mt-20 items-start overflow-hidden px-5 pb-16 pt-24 sm:px-8 lg:min-h-screen"
+      className="relative flex min-h-[92vh] scroll-mt-20 items-start overflow-hidden px-5 pb-16 pt-20 sm:px-8 lg:min-h-screen"
     >
       <div className="pointer-events-none absolute -right-32 top-24 h-96 w-96 rounded-full bg-blue-100/70 blur-3xl" />
       <div className="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-cyan-100/60 blur-3xl" />
