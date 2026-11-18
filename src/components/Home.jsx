@@ -32,7 +32,7 @@ const achievements = [
     date: "June '26",
   },
   {
-    title: "Top 10%ile · Summer Analytics, IIT Guwahati",
+    title: "Top 10% · Summer Analytics, IIT Guwahati",
     detail:
       "Certificate of Excellence in a 6-week Machine Learning program and hackathon by the Consulting & Analytics Club",
     date: "Jul '26",
