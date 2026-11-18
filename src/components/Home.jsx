@@ -6,6 +6,7 @@ const focusAreas = [
   "Applied Science",
   "ML",
   "AI",
+  "Database",
   "Forecasting",
   "Product",
   "Strategy",
