@@ -4,24 +4,10 @@ import SectionTitle from "./SectionTitle";
 const projects = [
   {
     category: "Tech",
-    field: "Optimization · Power systems",
-    title: "LGB SCED | Power Purchase Decision Support",
-    description: "Built a MILP-based dispatch platform modeling 45 generating units across 96 daily scheduling blocks, with rolling revisions and a MySQL, FastAPI, and React interface.",
-    tools: ["Python", "PuLP", "FastAPI", "React"],
-  },
-  {
-    category: "Tech",
     field: "Deep learning · Computer vision",
     title: "PostalVision | Postal OCR & Logistics Intelligence",
     description: "Developed a scratch-built CRNN-BiGRU-CTC postal OCR workflow with offline lookup of more than 19,000 Indian PIN records. Independent accuracy figures were not documented.",
     tools: ["PyTorch", "OpenCV", "Flask"],
-  },
-  {
-    category: "Tech",
-    field: "Generative AI · Education",
-    title: "Autonomous Learning Agent",
-    description: "Designed a LangGraph learning workflow with a 70% mastery checkpoint, question evaluation, and Feynman-style explanation and reassessment loops.",
-    tools: ["Python", "LangGraph", "LangChain"],
   },
   {
     category: "Tech",
