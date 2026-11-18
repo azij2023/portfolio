@@ -116,8 +116,12 @@ export default function Home() {
             </a>
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 lg:mx-0">
-            I turn data, mathematical models, and thoughtful product design into
-            practical decisions and measurable impact.
+            Postgraduate student in Data Science and Management, jointly offered
+            by IIT Ropar &amp; IIM Amritsar (Feb 2027), with a strong foundation
+            in quantitative analysis, data science, and business problem-solving.
+            Proven case competition winner with experience through company-based
+            freelance engagements. Transitioning into analytics and management
+            roles, leveraging data-driven insights for strategic decision-making
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
             {focusAreas.map((area) => (
