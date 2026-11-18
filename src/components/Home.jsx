@@ -115,7 +115,7 @@ export default function Home() {
               Email
             </a>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl indent-8 text-base leading-relaxed text-slate-600 lg:mx-0">
+          <p className="mx-auto mt-6 max-w-2xl indent-7 text-base leading-relaxed text-slate-600 lg:mx-0">
             Postgraduate student in Data Science and Management, jointly offered
             by IIT Ropar &amp; IIM Amritsar (Feb 2027), with a strong foundation
             in quantitative analysis, data science, and business problem-solving.
