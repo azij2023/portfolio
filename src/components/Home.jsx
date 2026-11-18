@@ -26,12 +26,6 @@ const achievements = [
     date: "Dec '25",
   },
   {
-    title: "All India Rank 70 · AINCAT, Naukri Campus",
-    detail:
-      "Secured a top rank in the nationwide career aptitude assessment",
-    date: "June '26",
-  },
-  {
     title: "Top 10% · Summer Analytics, IIT Guwahati",
     detail:
       "Certificate of Excellence in a 6-week Machine Learning program and hackathon by the Consulting & Analytics Club",
@@ -48,6 +42,12 @@ const achievements = [
     detail:
       "Selected for a Summer '26 internship; did not join due to commitment to APTRANSCO",
     date: "May '26",
+  },
+  {
+    title: "All India Rank 70 · AINCAT, Naukri Campus",
+    detail:
+      "Secured a top rank in the nationwide career aptitude assessment",
+    date: "June '26",
   },
 ];
 
