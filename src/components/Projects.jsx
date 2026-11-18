@@ -109,77 +109,86 @@ const projects = [
   },
 ];
 
-const filters = ["All", "Tech", "Management"];
+function ProjectCard({ project }) {
+  return (
+    <article className="card-lift overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex min-h-28 items-end bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 p-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-100">
+          {project.field}
+        </p>
+      </div>
+      <div className="p-6 sm:p-7">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
+          {project.category} project
+        </p>
+        <h4 className="mt-2 text-xl font-bold tracking-tight text-slate-900">
+          {project.title}
+        </h4>
+        <p className="mt-3 leading-relaxed text-slate-600">
+          {project.description}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2" aria-label="Tools and methods">
+          {project.tools.map((tool) => (
+            <span key={tool} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800">
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProjectGroup({ category }) {
+  const [expanded, setExpanded] = useState(false);
+  const categoryProjects = projects.filter((project) => project.category === category);
+  const visibleProjects = expanded ? categoryProjects : categoryProjects.slice(0, 2);
+  const remaining = categoryProjects.length - 2;
+  const listId = `projects-${category.toLowerCase()}`;
+
+  return (
+    <div className={category === "Management" ? "mt-12" : undefined}>
+      <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-slate-200 pb-4">
+        <h3 className="text-2xl font-bold tracking-tight text-slate-900">
+          {category} projects
+        </h3>
+        <span className="text-sm font-medium text-slate-500">{categoryProjects.length} projects</span>
+      </div>
+
+      <div id={listId} className="grid gap-6 md:grid-cols-2">
+        {visibleProjects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </div>
+
+      {remaining > 0 && (
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            aria-controls={listId}
+            aria-expanded={expanded}
+            onClick={() => setExpanded((current) => !current)}
+            className="rounded-full border border-blue-200 bg-white px-6 py-3 text-sm font-semibold text-blue-800 shadow-sm transition-colors hover:border-blue-400 hover:bg-blue-50"
+          >
+            {expanded
+              ? `Show fewer ${category.toLowerCase()} projects`
+              : `Show more ${category.toLowerCase()} projects (${remaining})`}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const visibleProjects = projects.filter(
-    (project) => activeFilter === "All" || project.category === activeFilter,
-  );
-
   return (
     <section id="projects" className="section-reveal scroll-mt-20 px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="Explore technical builds, analytics studies, and management case projects.">
           Projects
         </SectionTitle>
-
-        <div className="mb-8 flex flex-wrap justify-center gap-2" role="group" aria-label="Filter projects by category">
-          {filters.map((filter) => {
-            const count = filter === "All"
-              ? projects.length
-              : projects.filter((project) => project.category === filter).length;
-
-            return (
-              <button
-                key={filter}
-                type="button"
-                aria-pressed={activeFilter === filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`rounded-full border px-5 py-2.5 text-sm font-semibold transition-colors ${
-                  activeFilter === filter
-                    ? "border-blue-800 bg-blue-800 text-white"
-                    : "border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-700"
-                }`}
-              >
-                {filter} <span className="ml-1 opacity-75">{count}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {visibleProjects.map((project) => (
-            <article
-              key={project.title}
-              className="card-lift overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
-            >
-              <div className="flex min-h-28 items-end bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-100">
-                  {project.field}
-                </p>
-              </div>
-              <div className="p-6 sm:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-                  {project.category} project
-                </p>
-                <h3 className="mt-2 text-xl font-bold tracking-tight text-slate-900">
-                  {project.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-slate-600">
-                  {project.description}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2" aria-label="Tools and methods">
-                  {project.tools.map((tool) => (
-                    <span key={tool} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800">
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        <ProjectGroup category="Tech" />
+        <ProjectGroup category="Management" />
       </div>
     </section>
   );
