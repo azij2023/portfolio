@@ -12,9 +12,11 @@ const experiences = [
     projectTitle: "Security-Constrained Economic Dispatch Power Purchase Decision Support",
     categories: [
       "Data science",
+      "Analyst",
       "Decision science",
       "Optimization",
       "Applied Science",
+      "Database",
       "Forecasting",
       "Product",
       "Strategy",
@@ -38,7 +40,7 @@ const experiences = [
     mode: "Remote",
     dates: "Jan 2026 - Feb 2026 (2 months)",
     projectTitle: "Designing an Autonomous Learning Agent with Checkpoint Verification and Feynman Pedagogy",
-    categories: ["Data science", "Applied Science", "ML", "Product"],
+    categories: ["Data science", "Applied Science", "ML", "AI", "Product"],
     details: [
       {
         heading: "Problem Discovery & System Architecture",
