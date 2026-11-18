@@ -1,9 +1,11 @@
 const focusAreas = [
   "Data science",
+  "Analyst",
   "Decision science",
   "Optimization",
   "Applied Science",
   "ML",
+  "AI",
   "Forecasting",
   "Product",
   "Strategy",
