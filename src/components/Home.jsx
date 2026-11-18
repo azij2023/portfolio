@@ -70,7 +70,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold tracking-tight text-slate-950 sm:text-6xl xl:text-7xl">
             Azijur
             <br />
-            <span className="text-blue-700">Rahaman.</span>
+            <span className="text-blue-700">Rahaman</span>
           </h1>
           <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-blue-100 bg-white/80 px-5 py-4 text-left shadow-sm lg:mx-0">
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
