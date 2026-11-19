@@ -86,7 +86,7 @@ export default function Navbar() {
             })}
             <li className="pt-2 xl:pt-0 xl:pl-2">
               <a
-                href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf`}
+                href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf?v=30ffa2e`}
                 download="Azijur Rahaman_Resume.pdf"
                 onClick={closeMenu}
                 className="flex items-center justify-center gap-2 rounded-full bg-blue-800 px-5 py-2.5 text-sm font-bold text-white! transition-colors hover:bg-blue-900"

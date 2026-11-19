@@ -86,7 +86,7 @@ export default function Home() {
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-slate-500 lg:justify-start">
             <a
-              href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf`}
+              href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf?v=30ffa2e`}
               download="Azijur Rahaman_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-blue-800 bg-blue-800 px-6 py-3 text-sm font-bold text-white! transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-900 hover:bg-blue-900 hover:shadow-sm"
             >
