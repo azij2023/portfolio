@@ -31,7 +31,7 @@ const experiences = [
       `${import.meta.env.BASE_URL}sced-dashboard-1.png`,
       `${import.meta.env.BASE_URL}sced-dashboard-2.png`,
     ],
-    liveLink: "https://lgb-sced-dashboard.vercel.app",
+    liveLink: "https://azij2023.github.io/lgb-sced-dashboard-pages/",
   },
   {
     tag: "WINTER INTERNSHIP",
