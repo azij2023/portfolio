@@ -63,7 +63,7 @@ const experiences = [
       `${import.meta.env.BASE_URL}learning-agent-home.png`,
       `${import.meta.env.BASE_URL}learning-agent-lesson.png`,
     ],
-    liveLink: "https://learning-agent-xi.vercel.app/",
+    liveLink: "https://azij2023.github.io/learning-agent/",
     liveLinkText: "Explore Live Learning Agent Platform",
   },
 ];
