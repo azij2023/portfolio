@@ -8,6 +8,7 @@ const projects = [
     title: "PostalVision | Postal OCR & Logistics Intelligence",
     description: "Developed a scratch-built CRNN-BiGRU-CTC postal OCR workflow with offline lookup of more than 19,000 Indian PIN records. Independent accuracy figures were not documented.",
     tools: ["PyTorch", "OpenCV", "Flask"],
+    sampleUrl: "https://azij2023.github.io/PostVision/docs/",
   },
   {
     category: "Tech",
@@ -134,6 +135,17 @@ function ProjectCard({ project }) {
             </span>
           ))}
         </div>
+        {project.sampleUrl && (
+          <a
+            href={project.sampleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-800 transition-colors hover:border-blue-400 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+            aria-label={`Explore ${project.title} original app sample (opens in a new tab)`}
+          >
+            Explore original app sample <span aria-hidden="true">↗</span>
+          </a>
+        )}
       </div>
     </article>
   );
