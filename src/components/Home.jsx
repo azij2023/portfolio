@@ -63,7 +63,7 @@ export default function Home() {
 
       <div className="relative mx-auto grid w-full max-w-6xl items-start gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="text-center lg:text-left">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 shadow-sm sm:text-sm">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 shadow-sm sm:-translate-x-4 sm:text-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-100" />
             Open to data-driven and managerial opportunities
           </p>
