@@ -35,7 +35,7 @@ const focusAreas = [
 
 export default function Services() {
   return (
-    <section id="services" className="section-reveal scroll-mt-20 px-5 py-12 sm:px-8">
+    <section id="services" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="The themes that bring my technical and management training together.">
           Areas of focus

@@ -252,7 +252,7 @@ function ProjectGroup({ category }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-reveal scroll-mt-20 px-5 py-12 sm:px-8">
+    <section id="projects" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="Explore technical builds, analytics studies, and management case projects.">
           Projects

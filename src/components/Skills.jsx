@@ -54,7 +54,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-12 sm:px-8">
+    <section id="skills" className="section-reveal bg-slate-100/70 px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="A practical toolkit spanning analytical methods, engineering, and communication.">
           Skills &amp; toolkit

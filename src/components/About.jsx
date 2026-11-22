@@ -20,7 +20,7 @@ const strengths = [
 
 export default function About() {
   return (
-    <section id="about" className="section-reveal scroll-mt-20 px-5 py-12 sm:px-8">
+    <section id="about" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="A multidisciplinary foundation for solving practical, data-rich problems.">
           About me
