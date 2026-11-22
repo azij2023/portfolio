@@ -10,11 +10,14 @@ const projects = [
     tools: ["PyTorch", "OpenCV", "Flask"],
     sampleUrl: "https://azij2023.github.io/PostVision/docs/",
     image: "postalvision-sample.png",
+    imageAlt: "PostalVision sample interface showing five example envelopes",
   },
   {
     category: "Tech",
     field: "Machine learning · Banking",
     title: "ChurnZero | Bank Customer Churn Prediction",
+    image: "project-images/churnzero.jpg",
+    imageAlt: "Illustrative bank analyst workspace with customer trend charts",
     description: "Analyzed churn risk with 114 engineered banking features and a LightGBM-XGBoost ensemble, using outreach costs to choose a decision threshold. Performance figures are reported in the competition deck.",
     tools: ["Python", "LightGBM", "XGBoost"],
   },
@@ -22,6 +25,8 @@ const projects = [
     category: "Tech",
     field: "Machine learning · Digital engagement",
     title: "StreamMax | Viewer Fatigue Prediction",
+    image: "project-images/streammax.jpg",
+    imageAlt: "Illustrative late-night streaming scene with a viewer watching television",
     description: "Modeled viewer fatigue from 8,000 labeled users. A three-model blend reached 0.8076 validation ROC-AUC and generated risk scores for 2,000 test users.",
     tools: ["Python", "scikit-learn", "LightGBM"],
   },
@@ -29,6 +34,8 @@ const projects = [
     category: "Tech",
     field: "Machine learning · Marketing analytics",
     title: "E-Commerce Conversion Prediction",
+    image: "project-images/ecommerce-conversion.jpg",
+    imageAlt: "Illustrative online shopping dashboard beside a parcel",
     description: "Engineered features across 13,000 labeled shopping sessions and tuned a logistic regression threshold to 0.568 out-of-fold F1, then generated 3,000 test predictions.",
     tools: ["Python", "scikit-learn", "Cross-validation"],
   },
@@ -36,6 +43,8 @@ const projects = [
     category: "Tech",
     field: "Machine learning · Networks",
     title: "Network Congestion Prediction",
+    image: "project-images/network-congestion.jpg",
+    imageAlt: "Illustrative network operations center monitoring traffic patterns",
     description: "Team-built a three-class Random Forest predictor from 5,000 network telemetry records and 11 features. Project slides report 95% evaluation accuracy.",
     tools: ["Python", "Random Forest", "SMOTE"],
   },
@@ -43,6 +52,8 @@ const projects = [
     category: "Tech",
     field: "AIOps · Explainability",
     title: "Explainable Network Failure Root-Cause Analysis",
+    image: "project-images/network-root-cause.jpg",
+    imageAlt: "Illustrative engineer tracing a fault across a network diagram",
     description: "Designed a two-stage network failure and root-cause analysis concept using short-interval telemetry, with planned SHAP explanations and evaluation criteria.",
     tools: ["System design", "SHAP (planned)", "NetworkX (planned)"],
   },
@@ -50,6 +61,8 @@ const projects = [
     category: "Tech",
     field: "Applied statistics · Regression",
     title: "Insurance Charges Prediction",
+    image: "project-images/insurance-charges.jpg",
+    imageAlt: "Illustrative insurance analysis workspace with charts and forms",
     description: "Studied 1,338 insurance-charge records, screened outliers, compared linear and regularized regression models, and examined bias in high-cost predictions.",
     tools: ["Python", "Ridge/Lasso", "PCA"],
   },
@@ -57,6 +70,8 @@ const projects = [
     category: "Tech",
     field: "Database systems · SQL",
     title: "Academic Portal | MySQL Database",
+    image: "project-images/academic-portal.jpg",
+    imageAlt: "Illustrative university records portal on a laptop",
     description: "Co-developed a database for registration, grades, CGPA, and role-based approvals, including stored-procedure validation of a 24-credit limit.",
     tools: ["MySQL", "Stored procedures", "Database design"],
   },
@@ -64,6 +79,8 @@ const projects = [
     category: "Tech",
     field: "Exploratory analysis · Consumer insights",
     title: "Insightify | Restaurant Data Analysis",
+    image: "project-images/restaurant-insights.jpg",
+    imageAlt: "Illustrative restaurant table with a ratings analysis tablet",
     description: "Cleaned restaurant pricing and rating data, compared location and service patterns, and found a near-zero cost-rating correlation in the analyzed data.",
     tools: ["Python", "Data cleaning", "EDA"],
   },
@@ -71,6 +88,8 @@ const projects = [
     category: "Management",
     field: "Market research · Consumer behavior",
     title: "Decoding Consumer Choice",
+    image: "project-images/consumer-choice.jpg",
+    imageAlt: "Illustrative consumer comparing products and filling out a survey",
     description: "Co-conducted a 50-respondent Indian marketplace survey and ANOVA/regression analysis to identify the service factors associated with satisfaction and repeat purchase.",
     tools: ["Survey design", "ANOVA", "Regression"],
   },
@@ -78,6 +97,8 @@ const projects = [
     category: "Management",
     field: "Sustainability · Procurement",
     title: "Supplier Sustainability Program",
+    image: "project-images/supplier-sustainability.jpg",
+    imageAlt: "Illustrative sustainable cooling equipment supply chain",
     description: "Co-developed a 36-month Scope 3 supplier strategy for a modeled one-million-AC supply chain, targeting about 34% lower emissions and projecting ₹132 per-unit material savings.",
     tools: ["Supplier scorecards", "Scenario modeling", "GHG accounting"],
   },
@@ -85,6 +106,8 @@ const projects = [
     category: "Management",
     field: "Operations · Supply chain",
     title: "Cambridge Cooling Systems",
+    image: "project-images/cooling-systems.jpg",
+    imageAlt: "Illustrative air conditioner assembly line in a factory",
     description: "Co-evaluated Cambridge and Mexico production scenarios, calculated an approximately 833-unit break-even under assumed cost curves, and recommended a phased hybrid footprint.",
     tools: ["Cost-volume analysis", "Factor rating", "Operations strategy"],
   },
@@ -92,6 +115,8 @@ const projects = [
     category: "Management",
     field: "Financial analytics · Strategy",
     title: "Investing Through Tariff Wars",
+    image: "project-images/tariff-wars.jpg",
+    imageAlt: "Illustrative global investment analysis desk with charts",
     description: "Analyzed 300+ global mutual funds and ETFs by tariff exposure and resilience, then proposed a 45/35/20 defensive, balanced, and opportunistic allocation framework.",
     tools: ["Financial EDA", "Regression", "Portfolio segmentation"],
   },
@@ -99,6 +124,8 @@ const projects = [
     category: "Management",
     field: "Strategic management · AI governance",
     title: "Anduril Industries | AI-Driven Strategy",
+    image: "project-images/anduril-strategy.jpg",
+    imageAlt: "Illustrative aerospace research workspace with an unmanned aircraft model",
     description: "Co-authored an industry and company assessment using PESTLE and Porter's Five Forces, with an Adopt-Scale-Lead AI roadmap and governance recommendations.",
     tools: ["PESTLE", "Five Forces", "AI strategy"],
   },
@@ -106,12 +133,24 @@ const projects = [
     category: "Management",
     field: "Managerial economics · Policy",
     title: "GST Reform in India",
+    image: "project-images/gst-reform.jpg",
+    imageAlt: "Illustrative tax analysis desk with receipts and supply-demand curves",
     description: "Modeled four illustrative GST tax-incidence scenarios to compare how demand and supply elasticities affect affordability, revenue, and deadweight loss.",
     tools: ["Tax incidence", "Elasticity", "Scenario analysis"],
   },
 ];
 
 function ProjectCard({ project }) {
+  const projectImage = (
+    <img
+      src={`${import.meta.env.BASE_URL}${project.image}`}
+      alt={project.imageAlt}
+      loading="lazy"
+      decoding="async"
+      className="aspect-[1.93] w-full border-b border-slate-200 object-cover object-top"
+    />
+  );
+
   return (
     <article className="card-lift overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
       <div className="flex min-h-28 items-end bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 p-6">
@@ -119,23 +158,24 @@ function ProjectCard({ project }) {
           {project.field}
         </p>
       </div>
-      {project.image && (
-        <a
-          href={project.sampleUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Explore ${project.title} original app sample (opens in a new tab)`}
-          className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}${project.image}`}
-            alt="PostalVision sample interface showing five example envelopes"
-            loading="lazy"
-            decoding="async"
-            className="aspect-[1.93] w-full border-b border-slate-200 object-cover object-top"
-          />
-        </a>
-      )}
+      <div className="relative">
+        {project.sampleUrl ? (
+          <a
+            href={project.sampleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Explore ${project.title} original app sample (opens in a new tab)`}
+            className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            {projectImage}
+          </a>
+        ) : projectImage}
+        {!project.sampleUrl && (
+          <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
+            Illustrative image
+          </span>
+        )}
+      </div>
       <div className="p-6 sm:p-7">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
           {project.category} project
