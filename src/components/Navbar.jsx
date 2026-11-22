@@ -89,7 +89,7 @@ export default function Navbar() {
                 href={`${import.meta.env.BASE_URL}Azijur%20Rahaman_Resume.pdf?v=62d8063`}
                 download="Azijur Rahaman_Resume.pdf"
                 onClick={closeMenu}
-                className="flex items-center justify-center gap-2 rounded-full bg-blue-800 px-5 py-2.5 text-sm font-bold text-white! transition-colors hover:bg-blue-900"
+                className="flex items-center justify-center gap-2 rounded-full bg-blue-900 px-5 py-2.5 text-sm font-bold text-white! transition-colors hover:bg-blue-950"
               >
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 4v16m-6-6 6 6 6-6" />
