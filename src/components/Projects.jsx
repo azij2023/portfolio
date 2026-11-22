@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import SectionTitle from "./SectionTitle";
+import { projectDetails } from "../data/projectDetails";
 
 const projects = [
   {
@@ -140,7 +142,7 @@ const projects = [
   },
 ];
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onExplore }) {
   const projectImage = (
     <img
       src={`${import.meta.env.BASE_URL}${project.image}`}
@@ -188,23 +190,32 @@ function ProjectCard({ project }) {
             </span>
           ))}
         </div>
-        {project.sampleUrl && (
-          <a
-            href={project.sampleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-800 transition-colors hover:border-blue-400 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-            aria-label={`Explore ${project.title} original app sample (opens in a new tab)`}
+        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <button
+            type="button"
+            onClick={() => onExplore(project)}
+            className="text-sm font-semibold text-blue-700 transition-colors hover:text-blue-900"
           >
-            Explore original app sample <span aria-hidden="true">↗</span>
-          </a>
-        )}
+            Explore Details <span aria-hidden="true">→</span>
+          </button>
+          {project.sampleUrl && (
+            <a
+              href={project.sampleUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-800 transition-colors hover:border-blue-400 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              aria-label={`Explore ${project.title} original app sample (opens in a new tab)`}
+            >
+              Explore original app sample <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
 }
 
-function ProjectGroup({ category }) {
+function ProjectGroup({ category, onExplore }) {
   const [expanded, setExpanded] = useState(false);
   const categoryProjects = projects.filter((project) => project.category === category);
   const visibleProjects = expanded ? categoryProjects : categoryProjects.slice(0, 2);
@@ -222,7 +233,7 @@ function ProjectGroup({ category }) {
 
       <div id={listId} className="grid gap-6 md:grid-cols-2">
         {visibleProjects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <ProjectCard key={project.title} project={project} onExplore={onExplore} />
         ))}
       </div>
 
@@ -245,16 +256,138 @@ function ProjectGroup({ category }) {
   );
 }
 
+function ProjectDetailsDialog({ project, onClose, triggerRef }) {
+  const closeButtonRef = useRef(null);
+  const dialogRef = useRef(null);
+  const details = projectDetails[project.title];
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const restoreFocus = triggerRef.current;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+      if (event.key !== "Tab") return;
+
+      const focusable = dialogRef.current?.querySelectorAll('button, a[href]');
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+      restoreFocus?.focus();
+    };
+  }, [onClose, triggerRef]);
+
+  return createPortal(
+    <div
+      className="modal-backdrop fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-slate-950/50 px-4 py-4 backdrop-blur-sm sm:py-8"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-details-title"
+        className="modal-panel my-auto max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:max-h-[calc(100dvh-4rem)] sm:p-8"
+      >
+        <div className="mb-6 flex items-start justify-between gap-4">
+          <div>
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-blue-700">
+              {project.category} project
+            </p>
+            <h3 id="project-details-title" className="text-xl font-bold tracking-tight text-slate-900">
+              {project.title}
+            </h3>
+          </div>
+          <button
+            ref={closeButtonRef}
+            type="button"
+            aria-label="Close project details"
+            onClick={onClose}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 text-xl text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900"
+          >
+            ×
+          </button>
+        </div>
+        <div className="space-y-5 text-sm leading-relaxed text-slate-600">
+          <section>
+            <h4 className="mb-1 font-semibold text-slate-900">Problem & scope</h4>
+            <p>{details.problem}</p>
+          </section>
+          <section>
+            <h4 className="mb-1 font-semibold text-slate-900">Approach</h4>
+            <ul className="list-disc space-y-2 pl-5 marker:text-blue-700">
+              {details.approach.map((step) => <li key={step}>{step}</li>)}
+            </ul>
+          </section>
+          <section>
+            <h4 className="mb-1 font-semibold text-slate-900">Result & findings</h4>
+            <p>{details.result}</p>
+          </section>
+          {details.note && (
+            <section className="rounded-xl bg-slate-50 p-4">
+              <h4 className="mb-1 font-semibold text-slate-900">Evidence note</h4>
+              <p>{details.note}</p>
+            </section>
+          )}
+        </div>
+        {project.sampleUrl && (
+          <a
+            href={project.sampleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900"
+          >
+            Explore original app sample <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const triggerRef = useRef(null);
+  const closeDetails = useCallback(() => setSelectedProject(null), []);
+  const openDetails = (project) => {
+    triggerRef.current = document.activeElement;
+    setSelectedProject(project);
+  };
+
   return (
     <section id="projects" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="Explore technical builds, analytics studies, and management case projects.">
           Projects
         </SectionTitle>
-        <ProjectGroup category="Tech" />
-        <ProjectGroup category="Management" />
+        <ProjectGroup category="Tech" onExplore={openDetails} />
+        <ProjectGroup category="Management" onExplore={openDetails} />
       </div>
+      {selectedProject && (
+        <ProjectDetailsDialog
+          project={selectedProject}
+          onClose={closeDetails}
+          triggerRef={triggerRef}
+        />
+      )}
     </section>
   );
 }
