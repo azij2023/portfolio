@@ -209,9 +209,9 @@ export default function Experience() {
   return (
     <section id="experience" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl space-y-8">
-        <SectionTitle>Experience</SectionTitle>
+        <SectionTitle>Experiences</SectionTitle>
         <div
-          aria-label="Filter experience by category"
+          aria-label="Filter experiences by category"
           className="flex gap-2 overflow-x-auto pb-2"
         >
           {["All", ...categories].map((category) => (
