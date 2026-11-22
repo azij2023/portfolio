@@ -2,50 +2,45 @@ import SectionTitle from "./SectionTitle";
 
 const skills = [
   {
-    title: "Analytics & techniques",
-    body: "Time-series forecasting, Decision trees, Predictive modeling, A/B testing, Optimization",
+    title: "Data Science & ML",
+    detail:
+      "Python (PyTorch, scikit-learn, pandas, NumPy), R, SQL (MySQL), CNN/CRNN, XGBoost, LightGBM, Regression, EDA, SHAP",
   },
   {
-    title: "Technical tools",
-    body: "Python, scikit-learn, Power BI, Tableau, Excel, MySQL, Git, R, MATLAB, LaTeX",
+    title: "Product & Management",
+    detail:
+      "Requirements Gathering, PRD & Roadmapping, Stakeholder Management, Process Analysis, KPI Monitoring, Risk Assessment",
   },
   {
-    title: "Business competencies",
-    body: "Structured problem solving, Stakeholder management, Metric validation & QA, Executive dashboards",
+    title: "Tools & Platforms",
+    detail:
+      "MS Office Suite (Excel, Word, PowerPoint), Power BI, Tableau, FastAPI, Flask, React, Git, GCP, AWS",
   },
   {
-    title: "Languages",
-    body: "English, Hindi, Bengali",
+    title: "Languages & Interests",
+    detail:
+      "English, Hindi, Bengali | Stock Market Trading (Technical & Fundamental Analysis), Educational YouTube Content Creation",
   },
 ];
 
 export default function Skills() {
   return (
     <section id="skills" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-12 sm:px-8">
-      <div className="max-w-6xl mx-auto">
-        <SectionTitle description="A practical toolkit spanning analytical methods, engineering, and communication.">
-          Skills &amp; toolkit
-        </SectionTitle>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((s) => (
-            <article
-              key={s.title}
-              className="card-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+      <div className="mx-auto max-w-6xl">
+        <SectionTitle>Technical &amp; management skills</SectionTitle>
+        <dl className="rounded-2xl border border-slate-200 bg-white px-5 shadow-sm sm:px-8">
+          {skills.map((skill) => (
+            <div
+              key={skill.title}
+              className="grid gap-2 border-b border-slate-200 py-5 last:border-b-0 sm:grid-cols-[14rem_minmax(0,1fr)] sm:gap-6"
             >
-              <h3 className="font-semibold text-slate-900">{s.title}</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {s.body.split(", ").map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </article>
+              <dt className="font-semibold text-blue-900">{skill.title}</dt>
+              <dd className="text-sm leading-relaxed text-slate-700 sm:text-base">
+                {skill.detail}
+              </dd>
+            </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );
