@@ -60,7 +60,7 @@ export default function Navbar() {
 
         <div
           id="primary-navigation"
-          className={`absolute inset-x-0 top-full border-b border-slate-200 bg-white px-5 py-4 shadow-lg xl:static xl:mr-12 xl:border-0 xl:bg-transparent xl:p-0 xl:shadow-none ${
+          className={`absolute inset-x-0 top-full border-b border-slate-200 bg-white px-5 py-4 shadow-lg xl:static xl:-mr-4 xl:border-0 xl:bg-transparent xl:p-0 xl:shadow-none ${
             menuOpen ? "block" : "hidden xl:block"
           }`}
         >
