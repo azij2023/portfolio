@@ -207,7 +207,7 @@ export default function Experience() {
       : experiences.filter((exp) => exp.categories.includes(activeCategory));
 
   return (
-    <section id="experience" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-24 sm:px-8">
+    <section id="experience" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl space-y-8">
         <SectionTitle>Experience</SectionTitle>
         <div

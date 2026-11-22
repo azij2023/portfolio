@@ -35,7 +35,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="section-reveal scroll-mt-20 px-5 py-24 sm:px-8">
+    <section id="education" className="section-reveal scroll-mt-20 px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-4xl">
         <SectionTitle description="Academic training across data science, engineering, mathematics, and management.">
           Education

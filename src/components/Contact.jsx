@@ -2,7 +2,7 @@ import SectionTitle from "./SectionTitle";
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-reveal scroll-mt-20 px-5 py-24 sm:px-8">
+    <section id="contact" className="section-reveal scroll-mt-20 px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="Have a role, collaboration, or interesting problem in mind? I’d be glad to hear from you.">
           Let&apos;s connect

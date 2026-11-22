@@ -21,7 +21,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-24 sm:px-8">
+    <section id="skills" className="section-reveal scroll-mt-20 bg-slate-100/70 px-5 py-12 sm:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionTitle description="A practical toolkit spanning analytical methods, engineering, and communication.">
           Skills &amp; toolkit
