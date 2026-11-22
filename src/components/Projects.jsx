@@ -158,7 +158,7 @@ function ProjectCard({ project }) {
           {project.field}
         </p>
       </div>
-      <div className="relative">
+      <div>
         {project.sampleUrl ? (
           <a
             href={project.sampleUrl}
@@ -170,11 +170,6 @@ function ProjectCard({ project }) {
             {projectImage}
           </a>
         ) : projectImage}
-        {!project.sampleUrl && (
-          <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
-            {project.category === "Tech" ? "Concept preview" : "Illustrative image"}
-          </span>
-        )}
       </div>
       <div className="p-6 sm:p-7">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
