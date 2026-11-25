@@ -23,7 +23,7 @@ export default function About() {
     <section id="about" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="A multidisciplinary foundation for solving practical, data-rich problems.">
-          About me
+          About Me
         </SectionTitle>
 
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">

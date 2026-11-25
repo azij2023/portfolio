@@ -38,7 +38,7 @@ export default function Services() {
     <section id="services" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="The themes that bring my technical and management training together.">
-          Areas of focus
+          Areas of Focus
         </SectionTitle>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {focusAreas.map((area) => (

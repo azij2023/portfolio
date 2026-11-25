@@ -57,7 +57,7 @@ export default function Skills() {
     <section id="skills" className="section-reveal bg-slate-100/70 px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="A practical toolkit spanning analytical methods, engineering, and communication.">
-          Skills &amp; toolkit
+          Skills &amp; Toolkits
         </SectionTitle>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill) => (
