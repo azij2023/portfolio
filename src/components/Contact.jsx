@@ -5,7 +5,7 @@ export default function Contact() {
     <section id="contact" className="section-reveal px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionTitle description="Have a role, collaboration, or interesting problem in mind? I’d be glad to hear from you.">
-          Let&apos;s connect
+          Let&apos;s Connect
         </SectionTitle>
 
         <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm md:grid-cols-[0.8fr_1.2fr]">
